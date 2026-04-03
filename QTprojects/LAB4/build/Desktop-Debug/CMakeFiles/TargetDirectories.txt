@@ -1,0 +1,8 @@
+D:/QTcreator/Projects/LAB4/build/Desktop-Debug/CMakeFiles/LAB4.dir
+D:/QTcreator/Projects/LAB4/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+D:/QTcreator/Projects/LAB4/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+D:/QTcreator/Projects/LAB4/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+D:/QTcreator/Projects/LAB4/build/Desktop-Debug/CMakeFiles/install.dir
+D:/QTcreator/Projects/LAB4/build/Desktop-Debug/CMakeFiles/install/local.dir
+D:/QTcreator/Projects/LAB4/build/Desktop-Debug/CMakeFiles/LAB4_autogen_timestamp_deps.dir
+D:/QTcreator/Projects/LAB4/build/Desktop-Debug/CMakeFiles/LAB4_autogen.dir

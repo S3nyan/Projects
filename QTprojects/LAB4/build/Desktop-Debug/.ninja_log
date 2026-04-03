@@ -1,0 +1,15 @@
+# ninja log v6
+51	210	7968767940137363	LAB4_autogen/timestamp	5d6d3a76c80145b4
+51	210	7968767940137363	LAB4_autogen/mocs_compilation.cpp	5d6d3a76c80145b4
+51	210	7968767940137363	D:/QTcreator/Projects/LAB4/build/Desktop-Debug/LAB4_autogen/timestamp	5d6d3a76c80145b4
+51	210	7968767940137363	D:/QTcreator/Projects/LAB4/build/Desktop-Debug/LAB4_autogen/mocs_compilation.cpp	5d6d3a76c80145b4
+393	3017	7968762398556523	CMakeFiles/LAB4.dir/main.cpp.obj	5c201796b33962fe
+3568	3875	7968767975304308	LAB4.exe	8e54a8c68bf87a1c
+389	3011	7968762398516536	CMakeFiles/LAB4.dir/LAB4_autogen/mocs_compilation.cpp.obj	190fe3d749a02963
+211	3568	7968767941737217	CMakeFiles/LAB4.dir/mainwindow.cpp.obj	6f5fcfdc9838eb18
+52	215	7968770494170122	LAB4_autogen/timestamp	5d6d3a76c80145b4
+52	215	7968770494170122	LAB4_autogen/mocs_compilation.cpp	5d6d3a76c80145b4
+52	215	7968770494170122	D:/QTcreator/Projects/LAB4/build/Desktop-Debug/LAB4_autogen/timestamp	5d6d3a76c80145b4
+52	215	7968770494170122	D:/QTcreator/Projects/LAB4/build/Desktop-Debug/LAB4_autogen/mocs_compilation.cpp	5d6d3a76c80145b4
+216	4096	7968770495808718	CMakeFiles/LAB4.dir/mainwindow.cpp.obj	6f5fcfdc9838eb18
+4097	4438	7968770534612657	LAB4.exe	8e54a8c68bf87a1c
