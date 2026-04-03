@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    this->setWindowTitle("Анкета");
+
     ui->saveButton->setStyleSheet("background-color: green; color: white;");
 }
 
@@ -19,43 +22,84 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_saveButton_clicked()
 {
-    QRegularExpression nameRegex("^[A-ZА-Я][a-zа-я]+$");
-    QRegularExpression patronymicRegex("^$|^[A-ZА-Я][a-zа-я]+$");
-    QRegularExpression phoneRegex("^\\+(1|7|395)\\d{7,10}$");
-
     QString name = ui->nameEdit->text();
     QString surname = ui->surnameEdit->text();
     QString patronymic = ui->patronymicEdit->text();
     QString phone = ui->phoneEdit->text();
     QString gender = ui->radioMale->isChecked() ? "Male" : "Female";
 
+    QRegularExpression nameRegex("^[A-ZА-Я][a-zа-я]+$");
+
+    // --- Имя ---
+    if (name.isEmpty()) {
+        QMessageBox::warning(this, "Ошибка", "Имя не может быть пустым");
+        return;
+    }
+    if (!name[0].isUpper()) {
+        QMessageBox::warning(this, "Ошибка", "Имя должно начинаться с заглавной буквы");
+        return;
+    }
     if (!nameRegex.match(name).hasMatch()) {
-        QMessageBox::warning(this, "Ошибка", "Неверное имя");
+        QMessageBox::warning(this, "Ошибка", "Имя должно содержать только буквы");
         return;
     }
 
+    // --- Фамилия ---
+    if (surname.isEmpty()) {
+        QMessageBox::warning(this, "Ошибка", "Фамилия не может быть пустой");
+        return;
+    }
+    if (!surname[0].isUpper()) {
+        QMessageBox::warning(this, "Ошибка", "Фамилия должна начинаться с заглавной буквы");
+        return;
+    }
     if (!nameRegex.match(surname).hasMatch()) {
-        QMessageBox::warning(this, "Ошибка", "Неверная фамилия");
+        QMessageBox::warning(this, "Ошибка", "Фамилия должна содержать только буквы");
         return;
     }
 
-    if (!patronymicRegex.match(patronymic).hasMatch()) {
-        QMessageBox::warning(this, "Ошибка", "Неверное отчество");
+    // --- Отчество ---
+    if (!patronymic.isEmpty()) {
+        if (!patronymic[0].isUpper()) {
+            QMessageBox::warning(this, "Ошибка", "Отчество должно начинаться с заглавной буквы");
+            return;
+        }
+        if (!nameRegex.match(patronymic).hasMatch()) {
+            QMessageBox::warning(this, "Ошибка", "Отчество должно содержать только буквы");
+            return;
+        }
+    }
+
+    // --- Телефон ---
+    if (!phone.startsWith("+")) {
+        QMessageBox::warning(this, "Ошибка", "Телефон должен начинаться с +");
         return;
     }
 
-    if (!phoneRegex.match(phone).hasMatch()) {
-        QMessageBox::warning(this, "Ошибка", "Неверный телефон");
+    QRegularExpression phone7("^\\+7\\d{10}$");
+    QRegularExpression phone1("^\\+1\\d{10}$");
+    QRegularExpression phone395("^\\+395\\d{7}$");
+
+    if (!(phone7.match(phone).hasMatch() ||
+          phone1.match(phone).hasMatch() ||
+          phone395.match(phone).hasMatch())) {
+
+        QMessageBox::warning(this, "Ошибка",
+                             "Телефон должен быть:\n"
+                             "+7XXXXXXXXXX (10 цифр)\n"
+                             "+1XXXXXXXXXX (10 цифр)\n"
+                             "+395XXXXXXX (7 цифр)");
         return;
     }
 
+    // --- Пол ---
     if (!ui->radioMale->isChecked() && !ui->radioFemale->isChecked()) {
         QMessageBox::warning(this, "Ошибка", "Выберите пол");
         return;
     }
 
+    // --- Языки ---
     QString languages = "";
-
     if (ui->checkRussian->isChecked()) languages += "RU ";
     if (ui->checkEnglish->isChecked()) languages += "EN ";
     if (ui->checkFrench->isChecked()) languages += "FR ";
